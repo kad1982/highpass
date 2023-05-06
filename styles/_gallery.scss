@@ -1,0 +1,385 @@
+.gallery {
+	&__container {
+		padding: 68px 0;
+	}
+
+	&-title {
+		@include text-reset;
+		margin-bottom: 12px;
+		font-family: 'RTTFirsNeue';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 31px;
+		color: #202020;
+	}
+
+	&__wrapper {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 30px;
+		align-items: flex-start;
+
+		>li {
+			// height: -webkit-fill-available;
+			height: 100%;
+		}
+
+		>li:nth-child(1),
+		>li:nth-child(2),
+		>li:nth-child(3) {
+			grid-column: span 2;
+		}
+
+		>li:nth-child(4) {
+			grid-column: span 6;
+			background: url('../images/project_4.jpg'), black;
+			@include bg-image;
+		}
+
+		>li:nth-child(5) {
+			grid-column: span 6;
+			background: url('../images/project_5.jpg'), black;
+			@include bg-image;
+		}
+
+		>li:nth-child(6),
+		>li:nth-child(7) {
+			grid-column: span 3;
+		}
+
+	}
+}
+
+.card-small {
+	position: relative;
+	display: grid;
+	align-items: flex-start;
+	gap: 13px;
+
+	&-img {
+		height: 184px;
+	}
+
+	&-text {
+		@include hashtagcard(7, 7, 6, 14, $site-bgcolor_2)
+	}
+
+	&-title {
+		@include text-reset;
+		// height: 66px;
+		// overflow: hidden; /* Обрезаем все, что не помещается в область */
+		// text-overflow: ellipsis; /* Добавляем многоточие */
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 3;
+		overflow: hidden;
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 22px;
+		color: #202020;
+	}
+
+	&-calendar {
+		@include text-reset;
+		position: relative;
+		padding-left: 18px;
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 22px;
+		color: #999999;
+	}
+
+	&-calendar::before {
+		@include calendar;
+		background-position: left;
+	}
+}
+
+
+.card-big {
+	position: relative;
+	display: grid;
+	padding: 22px 30px 30px 30px;
+	grid-template-rows: 1fr 50px;
+	height: 100%;
+
+	&-text {
+		@include hashtagcard(7, 7, 6, 14, $site-bgcolor_2)
+	}
+
+	&-calendar {
+		@include text-reset;
+		position: relative;
+		padding-left: 18px;
+		margin-bottom: 7px;
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 22px;
+		color: #FFFFFF;
+	}
+
+	&-calendar::before {
+		@include calendar-white;
+		background-position: left;
+	}
+
+	&-title {
+		@include text-reset;
+		margin-bottom: 6px;
+		max-width: 50%;
+		font-family: 'RTTFirsNeue';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 24px;
+		color: #FFFFFF;
+	}
+
+	&-descr {
+		@include text-reset;
+		// margin-bottom: 54px;
+		padding-bottom: 20px;
+		max-width: 65%;
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 22px;
+		color: #FFFFFF;
+	}
+
+	&-btn {
+		@include btn-secondary
+	}
+}
+
+
+
+@media (max-width: 1919px) {
+	.card-small {
+		>picture {
+			margin-bottom: 6px;
+		}
+
+		&-title {
+			margin-bottom: 3px;
+			-webkit-line-clamp: 2;
+		}
+	}
+
+	.card-big {
+
+		padding: 30px 30px 37px 30px;
+	}
+
+	.gallery {
+		&__container {
+			padding: 78px 31px;
+		}
+
+		&__wrapper {
+			grid-template-rows: 285px 307px 307px;
+			grid-template-columns: repeat(8, 1fr);
+			gap: 24px;
+
+			>li:nth-child(3) {
+				grid-column: span 4;
+			}
+
+			>li:nth-child(4) {
+				grid-column: 1 / 6;
+				grid-row: 2/3;
+				background: url('../images/project_4_1024.jpg'), black;
+				@include bg-image;
+			}
+
+			>li:nth-child(5) {
+				grid-column: span 5;
+				grid-row: 3/4;
+				grid-column: 4/ 9;
+				background: url('../images/project_5_1024.jpg'), black;
+				@include bg-image;
+
+			}
+
+			>li:nth-child(6) {
+				grid-column: span 3;
+				grid-row: 2/3;
+
+				.card-small-title {
+					-webkit-line-clamp: 3;
+				}
+			}
+
+			>li:nth-child(7) {
+				grid-row: 3/4;
+				grid-column: span 3;
+
+				.card-small-title {
+					-webkit-line-clamp: 3;
+				}
+			}
+		}
+	}
+
+}
+
+@media (max-width: 1023px) {
+	.gallery {
+		&__container {
+			padding: 66px 27px;
+		}
+
+		&__wrapper {
+			grid-template-rows: 300px 300px 307px 300px;
+			grid-template-columns: repeat(6, 1fr);
+			gap: 24px;
+
+			>li {
+				.card-small-title {
+					-webkit-line-clamp: 3;
+				}
+			}
+
+			>li:nth-child(3) {
+				grid-column: span 2;
+			}
+
+			>li:nth-child(4) {
+				grid-column: span 6;
+				background: url('../images/project_4_768.jpg'), black;
+				@include bg-image;
+			}
+
+			>li:nth-child(5) {
+				grid-row: 4/5;
+				grid-column: span 6;
+				background: url('../images/project_5_768.jpg'), black;
+				@include bg-image;
+
+			}
+
+			>li:nth-child(6),
+			>li:nth-child(7) {
+				grid-row: 3/4;
+				grid-column: span 3;
+			}
+		}
+	}
+
+	.card-big-wrap-text {
+		max-width: 77%;
+	}
+}
+
+@media (max-width: 767px) {
+
+	.card-small,
+	.card-big {
+		&-text {
+			@include hashtagcard(5, 5, 4, 9, $site-bgcolor_2);
+			font-size: 12px;
+			line-height: 14px;
+		}
+	}
+
+	.card-big {
+		grid-template-rows: 1fr 40px;
+
+		&-wrap-text {
+			max-width: 100%;
+			align-self: self-end;
+		}
+
+		&-wrap-text {
+			margin-bottom: 10px;
+		}
+
+		&-descr {
+			max-width: 100%;
+			font-size: 14px;
+			line-height: 18px;
+		}
+
+		&-btn {
+			width: 109px;
+			padding: 12px 21px;
+			font-size: 14px;
+			line-height: 16px;
+		}
+	}
+
+	.gallery {
+		&__container {
+			padding: 50px 21px;
+		}
+
+		&-title {
+			font-size: 18px;
+			line-height: 23px;
+		}
+
+		&__wrapper {
+			grid-template-rows: 278px 278px 278px 422px 300px 300px 422px;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 24px;
+
+			>li:nth-child(1) {
+				grid-column: span 2;
+				grid-row: 1/2;
+
+				.card-small-title {
+					-webkit-line-clamp: 2;
+				}
+			}
+
+			>li:nth-child(2) {
+				grid-column: span 2;
+				grid-row: 2/3;
+
+				.card-small-title {
+					-webkit-line-clamp: 2;
+				}
+			}
+
+			>li:nth-child(3) {
+				grid-column: span 2;
+				grid-row: 3/4;
+
+				.card-small-title {
+					-webkit-line-clamp: 2;
+				}
+			}
+
+			>li:nth-child(4) {
+				grid-column: span 2;
+				grid-row: 4/5;
+			}
+
+			>li:nth-child(5) {
+				grid-column: span 2;
+				grid-row: 7/8;
+			}
+
+			>li:nth-child(6) {
+				grid-column: span 2;
+				grid-row: 5/6;
+			}
+
+			>li:nth-child(7) {
+				grid-column: span 2;
+				grid-row: 6/7;
+			}
+
+
+		}
+	}
+}

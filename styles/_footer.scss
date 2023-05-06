@@ -1,0 +1,157 @@
+.social {
+	&__icon {
+		width: 30px;
+		height: 30px;
+	}
+
+	&__item:nth-child(1) {
+		justify-self: flex-end;
+	}
+
+	&__item:nth-child(2) {
+		justify-self: flex-start;
+	}
+}
+
+.footer {
+	background-color: $site-bgcolor_2;
+
+
+	&-logo {
+		width: 190px;
+		height: 31px;
+	}
+
+	&__left-link {
+		display: block;
+		margin-bottom: 3px;
+	}
+
+	&-autor {
+		@include text-reset;
+		font-family: 'RTTFirsNeue';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 18px;
+		color: #E9E9E9;
+	}
+
+	&-descr {
+		@include text-reset;
+		max-width: 361px;
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 22px;
+		color: #CACACA;
+	}
+
+	&__right {
+		justify-self: end;
+
+		&-text {
+			@include text-reset;
+			margin-bottom: 7px;
+			font-family: 'Roboto';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 22px;
+			color: #CACACA;
+		}
+	}
+
+	&__container {
+		display: grid;
+		grid-template: 1fr 0/1fr 1.5fr 218px;
+		align-items: center;
+		gap: 30px;
+		padding: 24px 0 16px 0;
+	}
+
+	&__social {
+		display: grid;
+		grid-template: 1fr / 1fr 1fr;
+		justify-items: center;
+		gap: 20px;
+	}
+	.social__link svg{
+		fill:#CACACA;
+		transition: fill 0.3s ease-in-out;
+	}
+
+	.social__link:focus:not(:hover):not(:active) svg,
+	.social__link:focus-visible:not(:hover):not(:active) svg
+	{
+		fill: #BC572B;
+	}
+	.social__link:hover:not(:active) svg {
+		fill: #FF6E30;
+	}
+	.social__link:active svg {
+		fill: #CE4307;
+
+	}
+}
+
+@media (max-width: 1919px) {
+	.footer {
+		&-logo {
+			width: 166px;
+			height: 27px;
+		}
+
+		&__container {
+			padding: 24px 31px 16px 31px;
+		}
+	}
+}
+
+@media (max-width: 1023px) {
+	.footer {
+		&-descr {
+			display: none;
+		}
+
+		&__container {
+			padding: 24px 27px 22px 27px;
+		}
+
+		&__left {
+			grid-column: span 2;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.footer {
+		&__container {
+			grid-template: 59px 62px/1fr;
+		}
+
+		&__left {
+			grid-row: 2/3;
+			grid-column: span 2;
+			justify-self: center;
+		}
+
+		&__right {
+			grid-row: 1/2;
+			grid-column: span 2;
+			justify-self: center;
+		}
+
+		&-logo {
+			margin: 0 auto;
+			width: 112px;
+			height: 18px;
+		}
+
+		&-autor {
+			font-size: 10px;
+			line-height: 13px;
+		}
+	}
+}
